@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURBOX — Отзывы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/css/intlTelInput.css">
+    <style>
+        .page-header {
+            padding: 80px 5%;
+            background: linear-gradient(180deg, rgba(0, 163, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .reviews-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 5% 80px 5%;
+        }
+
+        .reviews-grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .review-author {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--color-text);
+        }
+
+        .review-date {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            margin-top: 5px;
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 2px;
+            color: var(--color-primary);
+        }
+
+        .review-text {
+            color: var(--color-text);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .admin-reply {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 163, 255, 0.05);
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 15px 15px 0;
+            font-size: 15px;
+        }
+
+        .admin-reply-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .admin-reply-text {
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .empty-reviews {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            grid-column: 1 / -1;
+        }
+
+        .empty-reviews iconify-icon {
+            font-size: 64px;
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+        }
+    </style>
+    </head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="logo">
+                <i class="ph-fill ph-shield-check logo-icon"></i>
+                <span>SECURBOX</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Головна</a>
+                <a href="index.html#categories" data-i18n="nav_categories">Категорії</a>
+                <a href="index.html#products" data-i18n="nav_products">Популярні товари</a>
+                <a href="index.html#testimonials" data-i18n="nav_reviews" class="mobile-only-nav">Відгуки</a>
+                <a href="contacts.html" data-i18n="nav_contact">Контакти</a>
+                <a href="delivery-payment.html" data-i18n="nav_delivery">Доставка та оплата</a>
+                <a href="returns.html" data-i18n="nav_returns">Повернення та обмін</a>
+                <a href="#" id="mobileCallbackLink" class="mobile-only-nav mobile-nav-highlight">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </a>
+            </nav>
+                        <div class="header-search">
+                <div class="search-category-dd">
+                    <span data-i18n="search_all">Все</span>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="header-search-input-wrapper">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Найдите свой любимый товар..." data-i18n-placeholder="search_placeholder">
+                </div>
+                <button class="search-btn" data-i18n="search_button">Поиск</button>
+            </div>
+            <div class="header-actions">
+                <div class="lang-switch" id="langSwitch">
+                    <button class="lang-btn active" data-lang="ua">UA</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <div class="header-callback-container">
+                    <button class="header-callback-btn" id="headerCallbackTrigger">
+                        <i class="ph-fill ph-phone-call"></i>
+                        <span data-i18n="nav_callback">Передзвоніть мені</span>
+                    </button>
+                    <div class="header-callback-dropdown" id="headerCallbackDropdown">
+                        <div class="dropdown-arrow"></div>
+                        <h4 data-i18n="callback_title">Передзвоніть мені</h4>
+                        <p data-i18n="callback_desc">Залиште номер, і ми зв'яжемося з вами.</p>
+                        <form id="headerCallbackForm">
+                            <input type="text" id="hcbName" placeholder="Ваше ім'я" required
+                                data-i18n-placeholder="modal_name_placeholder">
+                            <div class="form-group">
+                                <input type="tel" id="hcbPhone" placeholder="+380" required>
+                                <div class="phone-error-msg">
+                                    <div data-i18n="error_phone">Неправильний формат запису</div>
+                                    <div class="phone-hint" data-i18n="error_phone_hint">
+                                        Вірний формат телефону: +380 00 000 00 00
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="callback_btn">Чекаю на
+                                дзвінок</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="cart.html" class="header-cart" id="headerCart">
+                    <span data-i18n="nav_cart">Кошик</span>
+                    <i class="ph-fill ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-i18n="test_title">Отзывы клиентов</h1>
+                <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto; font-size: 18px;" data-i18n="reviews_desc">
+                    Читайте реальные отзывы наших покупателей о продукции и качестве обслуживания SECURBOX.
+                </p>
+            </div>
+        </section>
+
+        <section class="reviews-container">
+            <div class="reviews-grid" id="allReviewsGrid">
+                <!-- Reviews will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
+
+        <!-- ===================== NEWSLETTER ===================== -->
+        <section class="newsletter" id="contact">
+            <div class="container newsletter-inner">
+                <div class="newsletter-text">
+                    <h2 data-i18n="news_title">Будьте в курсі подій!</h2>
+                    <p data-i18n="news_desc">Отримуйте поради з безпеки, оновлення товарів та ексклюзивні пропозиції
+                        на вашу пошту.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" data-i18n-placeholder="news_placeholder" placeholder="Введіть вашу email адресу"
+                        required>
+                    <button type="submit" class="btn btn-primary" data-i18n="news_btn">Підписатись</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_info">Інформація</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="footer_about">Про нас</a></li>
+                        <li><a href="#" data-i18n="footer_wholesale">Оптовим клієнтам</a></li>
+                        <li><a href="#" data-i18n="footer_offer">Публічна оферта</a></li>
+                        <li><a href="returns.html" data-i18n="footer_return_policy">Політика повернення товару</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_categories">Категорії</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="category.html?id=cat_cameras" data-i18n="cat_cameras">Камери відеоспостереження</a></li>
+                        <li><a href="category.html?id=cat_lighting" data-i18n="cat_lighting">Розумне освітлення</a></li>
+                        <li><a href="category.html?id=cat_health" data-i18n="cat_health">Краса та здоров'я</a></li>
+                        <li><a href="category.html?id=cat_accessories" data-i18n="cat_accessories">Аксесуари та гаджети</a></li>
+                        <li><a href="category.html?id=cat_other" data-i18n="cat_other">Інше</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_working_hours">Час роботи</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div class="footer-schedule">
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-clock" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: #fff; font-weight: 600; font-size: 0.95rem;" data-i18n="footer_time_weekdays">ПН-ПТ: 09:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-calendar-blank" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;" data-i18n="footer_time_weekend">СБ-ВС: вихідний</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 22px;">
+                        <span data-i18n="footer_social_text" style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 12px; color: #fff;">Ми в соціальних мережах:</span>
+                        <div class="footer-socials">
+                            <a href="#" aria-label="facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="#" aria-label="instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="#" aria-label="youtube"><i class="ph-fill ph-youtube-logo"></i></a>
+                            <a href="#" aria-label="tiktok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_contacts_title">Наші контакти</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="tel:+380663842433" style="font-weight: 700; font-size: 1.2rem; color: #fff;">+38 (066)384-24-33</a>
+                        <a href="mailto:zakaz@magnitek.ua" style="text-decoration: underline; color: var(--color-text-secondary); font-size: 1.05rem;">zakaz@magnitek.ua</a>
+                        <div style="color: var(--color-text-secondary); line-height: 1.5; font-size: 0.95rem; margin-top: 5px;" data-i18n="footer_address">м. Харків, вул. Василя Стуса, 4а,<br>61154</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 SECURBOX. Усі права захищені.</p>
+                <div class="footer-payment-methods">
+                    <iconify-icon icon="logos:visa"></iconify-icon>
+                    <iconify-icon icon="logos:mastercard"></iconify-icon>
+                    <iconify-icon icon="logos:apple-pay"></iconify-icon>
+                    <iconify-icon icon="logos:google-pay"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== QUICK BUY MODAL ===================== -->
+    <div class="modal-overlay" id="quickBuyModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeQuickBuy">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="modal_title">Купити в один клік</h2>
+                <p><span id="qbProductName" style="color: var(--color-primary); font-weight: 600;"></span></p>
+                <p data-i18n="modal_desc">Залиште ваші дані, і ми зателефонуємо вам.</p>
+            </div>
+            <form id="quickBuyForm" class="modal-form">
+                <div class="form-group">
+                    <label for="qbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="qbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="qbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="qbPhone" name="phone" required placeholder="+380">
+                    <div class="phone-error-msg">
+                        <div data-i18n="error_phone">Неправильний формат запису</div>
+                        <div class="phone-hint" data-i18n="error_phone_hint">
+                            Вірний формат телефону: +380 00 000 00 00
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="modal_btn">Оформити
+                    замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== MOBILE BOTTOM NAV ===================== -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="ph-fill ph-house"></i>
+            <span data-i18n="nav_home">Головна</span>
+        </a>
+        <a href="index.html#categories" class="mobile-nav-item">
+            <i class="ph-fill ph-squares-four"></i>
+            <span data-i18n="nav_categories">Категорії</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item mobile-nav-cart">
+            <i class="ph-fill ph-shopping-cart"></i>
+            <span data-i18n="nav_cart">Кошик</span>
+            <span class="cart-badge">0</span>
+        </a>
+        <a href="contacts.html" class="mobile-nav-item">
+            <i class="ph-fill ph-phone-call"></i>
+            <span data-i18n="nav_contact">Контакти</span>
+        </a>
+    </nav>
+
+    <!-- ===================== CALLBACK MODAL ===================== -->
+    <div class="modal-overlay" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeCallbackModal">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="callback_title">Замовити дзвінок</h2>
+                <p data-i18n="callback_desc">Введіть номер, і ми передзвонимо вам якнайшвидше.</p>
+            </div>
+            <form id="callbackForm" class="modal-form">
+                <div class="form-group">
+                    <label for="cbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="cbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="cbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="cbPhone" name="phone" required placeholder="+380">
+                    <div class="phone-error-msg">
+                        <div data-i18n="error_phone">Неправильний формат запису</div>
+                        <div class="phone-hint" data-i18n="error_phone_hint">
+                            Вірний формат телефону: +380 00 000 00 00
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="callback_btn">Передзвоніть
+                    мені</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== SUCCESS MODAL ===================== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content" style="max-width: 400px; text-align: center; padding: 40px 30px;">
+            <button class="modal-close" id="closeSuccessModal">&times;</button>
+            <div class="modal-success-msg">
+                <div style="font-size: 4rem; color: #10b981; margin-bottom: 20px;">
+                    <i class="ph-fill ph-check-circle"></i>
+                </div>
+                <h2 id="successModalTitle"
+                    style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 15px;">Дякуємо!</h2>
+                <p id="successModalDesc"
+                    style="color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 25px;">Ми отримали
+                    вашу заявку та скоро зв’яжемося з вами.</p>
+                <button class="btn btn-primary" id="successModalBtn" style="width: 100%;">ОК</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FLOATING ACTIONS ===================== -->
+    <div class="floating-actions">
+        <button class="btn-callback-float" id="openCallbackBtn" title="Замовити дзвінок">
+            <i class="ph-fill ph-phone-call"></i>
+            <span class="pulse-ring"></span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAllReviews();
+        });
+
+        function loadAllReviews() {
+            const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+            const approvedReviews = reviews.filter(r => r.status === 'approved');
+            const grid = document.getElementById('allReviewsGrid');
+            const lang = window.currentLang || 'ua';
+
+            grid.innerHTML = '';
+
+            if (approvedReviews.length === 0) {
+                const noReviewsTitle = lang === 'ua' ? 'Відгуків поки немає' : 'Отзывов пока нет';
+                const noReviewsDesc = lang === 'ua' ? 'Будьте першим, хто залишить відгук про наш магазин!' : 'Будьте первым, кто оставит отзыв о нашем магазине!';
+                const toShopping = lang === 'ua' ? 'До покупок' : 'К покупкам';
+
+                grid.innerHTML = `
+                    <div class="empty-reviews">
+                        <i class="ph-fill ph-star"></i>
+                        <h3 style="margin-bottom: 10px; font-size: 24px;">${noReviewsTitle}</h3>
+                        <p style="color: var(--color-text-muted);">${noReviewsDesc}</p>
+                        <a href="index.html" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">${toShopping}</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort newest first
+            approvedReviews.sort((a, b) => {
+                const parseDate = (d) => {
+                    if (!d) return 0;
+                    let parts = d.split(', ');
+                    if (parts.length === 2) {
+                        let dateParts = parts[0].split('.');
+                        return new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}T${parts[1]}`).getTime();
+                    } else {
+                        let dateParts = d.split('.');
+                        if (dateParts.length === 3) {
+                            return new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}T00:00:00`).getTime();
+                        }
+                    }
+                    return new Date(d).getTime() || 0;
+                };
+                return parseDate(b.date) - parseDate(a.date);
+            });
+
+            approvedReviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+
+                const rating = Number(review.rating) || 5;
+                let starsHtml = '';
+                for (let i = 0; i < 5; i++) {
+                    if (i < rating) {
+                        starsHtml += '<i class="ph-fill ph-star" style="color: var(--color-primary);"></i>';
+                    } else {
+                        starsHtml += '<i class="ph ph-star" style="color: var(--color-text-muted);"></i>';
+                    }
+                }
+
+                let dateDisplay = review.date || '';
+                if (dateDisplay.includes(', ')) {
+                    dateDisplay = dateDisplay.split(', ')[0];
+                }
+
+                const anonName = lang === 'ua' ? 'Анонімний покупець' : 'Анонимный покупатель';
+                const replyTitle = lang === 'ua' ? 'Відповідь SECURBOX' : 'Ответ SECURBOX';
+
+                const replyHtml = review.adminReply 
+                    ? `<div class="admin-reply">
+                        <div class="admin-reply-header">
+                            <i class="ph-fill ph-chat-circle-dots"></i>
+                            ${replyTitle}
+                        </div>
+                        <div class="admin-reply-text">${review.adminReply}</div>
+                    </div>` 
+                    : '';
+
+                card.innerHTML = `
+                    <div class="review-header">
+                        <div>
+                            <div class="review-author">${review.author || anonName}</div>
+                            ${review.productName ? `<div style="font-size: 13px; color: var(--color-primary); margin-top: 2px;">${review.productName}</div>` : ''}
+                            <div class="review-date">${dateDisplay}</div>
+                        </div>
+                        <div class="review-rating">${starsHtml}</div>
+                    </div>
+                    <div class="review-text">${review.text}</div>
+                    ${replyHtml}
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+
+</html>

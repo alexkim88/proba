@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURBOX — Доставка та оплата</title>
+    <meta name="description" content="Інформація про способи доставки та оплати товарів SECURBOX">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    </head>
+
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="logo">
+                <i class="ph-fill ph-shield-check logo-icon"></i>
+                <span>SECURBOX</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Головна</a>
+                <a href="index.html#categories" data-i18n="nav_categories">Категорії</a>
+                <a href="index.html#products" data-i18n="nav_products">Популярні товари</a>
+                <a href="index.html#testimonials" data-i18n="nav_reviews" class="mobile-only-nav">Відгуки</a>
+                <a href="contacts.html" data-i18n="nav_contact">Контакти</a>
+                <a href="delivery-payment.html" data-i18n="nav_delivery">Доставка та оплата</a>
+                <a href="returns.html" data-i18n="nav_returns">Повернення та обмін</a>
+                <a href="#" id="mobileCallbackLink" class="mobile-only-nav mobile-nav-highlight">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </a>
+            </nav>
+                        <div class="header-search">
+                <div class="search-category-dd">
+                    <span data-i18n="search_all">Все</span>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="header-search-input-wrapper">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Найдите свой любимый товар..." data-i18n-placeholder="search_placeholder">
+                </div>
+                <button class="search-btn" data-i18n="search_button">Поиск</button>
+            </div>
+            <div class="header-actions">
+                <div class="lang-switch" id="langSwitch">
+                    <button class="lang-btn active" data-lang="ua">UA</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <div class="header-callback-container">
+                    <button class="header-callback-btn" id="headerCallbackTrigger">
+                        <i class="ph-fill ph-phone-call"></i>
+                        <span data-i18n="nav_callback">Передзвоніть мені</span>
+                    </button>
+                    <div class="header-callback-dropdown" id="headerCallbackDropdown">
+                        <div class="dropdown-arrow"></div>
+                        <h4 data-i18n="callback_title">Передзвоніть мені</h4>
+                        <p data-i18n="callback_desc">Залиште номер, і ми зв'яжемося з вами.</p>
+                        <form id="headerCallbackForm">
+                            <input type="text" id="hcbName" placeholder="Ваше ім'я" required
+                                data-i18n-placeholder="modal_name_placeholder">
+                            <div class="form-group">
+                                <input type="tel" id="hcbPhone" placeholder="+380" required>
+                                <div class="phone-error-msg">
+                                    <div data-i18n="error_phone">Неправильний формат запису</div>
+                                    <div class="phone-hint" data-i18n="error_phone_hint">
+                                        Вірний формат телефону: +380 00 000 00 00
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="callback_btn">Чекаю на
+                                дзвінок</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="cart.html" class="header-cart" id="headerCart">
+                    <span data-i18n="nav_cart">Кошик</span>
+                    <i class="ph-fill ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="policy-page">
+            <div class="container">
+                <nav class="cart-breadcrumbs">
+                    <i class="ph ph-caret-double-right"></i> <span data-i18n="deliv_title">Доставка та оплата</span>
+                </nav>
+
+                <div class="policy-content card-v2" id="page-content-area" data-page-id="delivery">
+                    <h1 class="policy-heading">Доставка та оплата</h1>
+
+                    <div class="policy-section">
+                        <h2>Способи доставки</h2>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 1rem;">
+                                    <rect width="40" height="40" rx="8" fill="#ED1C24" />
+                                    <path fill-rule="evenodd"
+                                        d="M20 6 L34 20 L20 34 L6 20 Z M13 13 V27 H17 V22 H23 V27 H27 V13 H23 V18 H17 V13 Z"
+                                        fill="white" />
+                                </svg>
+                                <h3>Нова Пошта</h3>
+                                <p data-i18n="deliv_np_p">Доставка у відділення або поштомат по всій Україні. Термін:
+                                    1-3 дні. Безкоштовно для
+                                    замовлень від 2000₴.</p>
+                            </div>
+                            <div class="step-card">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 1rem;">
+                                    <rect width="40" height="40" rx="8" fill="#FFCC00" />
+                                    <path
+                                        d="M10 14C10 12.8954 10.8954 12 12 12H28C29.1046 12 30 12.8954 30 14V26C30 27.1046 29.1046 28 28 28H12C10.8954 28 10 27.1046 10 26V14Z"
+                                        fill="#0033A0" />
+                                    <path d="M10 16L20 22L30 16" stroke="#FFCC00" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <h3 data-i18n="deliv_up">Укрпошта</h3>
+                                <p data-i18n="deliv_up_p">Доставка у відділення по всій Україні. Економно та надійно.
+                                    Термін: 3-5 днів.</p>
+                            </div>
+                            <div class="step-card">
+                                <i class="ph-fill ph-user" style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
+                                <h3>Кур'єр</h3>
+                                <p>Кур'єрська доставка до дверей. Доступно у великих містах. Зручний час узгоджується з
+                                    менеджером.</p>
+                            </div>
+                            <div class="step-card">
+                                <i class="ph-fill ph-storefront" style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
+                                <h3>Самовивіз</h3>
+                                <p>Ви можете забрати товар самостійно з наших точок видачі в Києві. Попередньо узгодьте
+                                    наявність.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="policy-section">
+                        <h2>Способи оплати</h2>
+                        <ul class="policy-list">
+                            <li><strong>Онлайн-оплата:</strong> Карткою Visa/Mastercard, Apple Pay або Google Pay прямо
+                                на сайті.</li>
+                            <li><strong>Післяплата:</strong> Оплата готівкою або картою при отриманні у відділенні
+                                «Нової Пошти».</li>
+                            <li><strong>Безготівковий розрахунок:</strong> Оплата на розрахунковий рахунок компанії.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_info">Інформація</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="footer_about">Про нас</a></li>
+                        <li><a href="#" data-i18n="footer_wholesale">Оптовим клієнтам</a></li>
+                        <li><a href="#" data-i18n="footer_offer">Публічна оферта</a></li>
+                        <li><a href="returns.html" data-i18n="footer_return_policy">Політика повернення товару</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_categories">Категорії</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="category.html?id=cat_cameras" data-i18n="cat_cameras">Камери відеоспостереження</a></li>
+                        <li><a href="category.html?id=cat_lighting" data-i18n="cat_lighting">Розумне освітлення</a></li>
+                        <li><a href="category.html?id=cat_health" data-i18n="cat_health">Краса та здоров'я</a></li>
+                        <li><a href="category.html?id=cat_accessories" data-i18n="cat_accessories">Аксесуари та гаджети</a></li>
+                        <li><a href="category.html?id=cat_other" data-i18n="cat_other">Інше</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_working_hours">Час роботи</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div class="footer-schedule">
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-clock" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: #fff; font-weight: 600; font-size: 0.95rem;" data-i18n="footer_time_weekdays">ПН-ПТ: 09:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-calendar-blank" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;" data-i18n="footer_time_weekend">СБ-ВС: вихідний</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 22px;">
+                        <span data-i18n="footer_social_text" style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 12px; color: #fff;">Ми в соціальних мережах:</span>
+                        <div class="footer-socials">
+                            <a href="#" aria-label="facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="#" aria-label="instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="#" aria-label="youtube"><i class="ph-fill ph-youtube-logo"></i></a>
+                            <a href="#" aria-label="tiktok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_contacts_title">Наші контакти</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="tel:+380663842433" style="font-weight: 700; font-size: 1.2rem; color: #fff;">+38 (066)384-24-33</a>
+                        <a href="mailto:zakaz@magnitek.ua" style="text-decoration: underline; color: var(--color-text-secondary); font-size: 1.05rem;">zakaz@magnitek.ua</a>
+                        <div style="color: var(--color-text-secondary); line-height: 1.5; font-size: 0.95rem; margin-top: 5px;" data-i18n="footer_address">м. Харків, вул. Василя Стуса, 4а,<br>61154</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 SECURBOX. Усі права захищені.</p>
+                <div class="footer-payment-methods">
+                    <iconify-icon icon="logos:visa"></iconify-icon>
+                    <iconify-icon icon="logos:mastercard"></iconify-icon>
+                    <iconify-icon icon="logos:apple-pay"></iconify-icon>
+                    <iconify-icon icon="logos:google-pay"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== MOBILE BOTTOM NAV ===================== -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="ph-fill ph-house"></i>
+            <span data-i18n="nav_home">Головна</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item mobile-nav-cart">
+            <i class="ph-fill ph-shopping-cart"></i>
+            <span data-i18n="nav_cart">Кошик</span>
+            <span class="cart-badge">0</span>
+        </a>
+        <a href="contacts.html" class="mobile-nav-item">
+            <i class="ph-fill ph-phone-call"></i>
+            <span data-i18n="nav_contact">Контакти</span>
+        </a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

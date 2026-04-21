@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURBOX — Сторінка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    </head>
+
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="logo">
+                <i class="ph-fill ph-shield-check logo-icon"></i>
+                <span>SECURBOX</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Головна</a>
+                <a href="index.html#categories" data-i18n="nav_categories">Категорії</a>
+                <a href="index.html#products" data-i18n="nav_products">Популярні товари</a>
+                <a href="index.html#testimonials" data-i18n="nav_reviews" class="mobile-only-nav">Відгуки</a>
+                <a href="contacts.html" data-i18n="nav_contact">Контакти</a>
+                <a href="delivery-payment.html" data-i18n="nav_delivery">Доставка та оплата</a>
+                <a href="returns.html" data-i18n="nav_returns">Повернення та обмін</a>
+                <a href="#" id="mobileCallbackLink" class="mobile-only-nav mobile-nav-highlight">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </a>
+            </nav>
+            <div class="header-callback-container">
+                <button class="header-callback-btn" id="headerCallbackTrigger">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </button>
+                <div class="header-callback-dropdown" id="headerCallbackDropdown">
+                    <div class="dropdown-arrow"></div>
+                    <h4 data-i18n="callback_title">Передзвоніть мені</h4>
+                    <p data-i18n="callback_desc">Залиште номер, і ми зв'яжемося з вами.</p>
+                    <form id="headerCallbackForm">
+                        <input type="text" id="hcbName" placeholder="Ваше ім'я" required
+                            data-i18n-placeholder="modal_name_placeholder">
+                        <div class="form-group">
+                            <input type="tel" id="hcbPhone" placeholder="+380" required>
+                            <div class="phone-error-msg">
+                                <div data-i18n="error_phone">Неправильний формат запису</div>
+                                <div class="phone-hint" data-i18n="error_phone_hint">
+                                    Вірний формат телефону: +380 00 000 00 00
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="callback_btn">Чекаю на
+                            дзвінок</button>
+                    </form>
+                </div>
+            </div>
+            <a href="cart.html" class="header-cart" id="headerCart">
+                <span data-i18n="nav_cart">Кошик</span>
+                <i class="ph-fill ph-shopping-cart"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="policy-page">
+            <div class="container">
+                <nav class="cart-breadcrumbs">
+                    <i class="ph ph-caret-double-right"></i> <span id="breadcrumb-title">Сторінка</span>
+                </nav>
+
+                <div class="policy-content card-v2" id="page-content-area">
+                    <!-- Content loaded via JS -->
+                    <div style="padding: 100px 0; text-align: center; opacity: 0.5;">
+                        <i class="ph-fill ph-arrows-clockwise" style="font-size: 3rem; animation: spin 2s linear infinite;"></i>
+                        <p style="margin-top: 20px;">Завантаження...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="ph-fill ph-shield-check logo-icon"></i>
+                        <span>SECURBOX</span>
+                    </a>
+                </div>
+                <div class="footer-links footer-links-collapsible"><h4><span data-i18n="footer_company">Компанія</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul id="dynamic-footer-pages">
+                        <!-- Custom pages will appear here if needed -->
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="admin.html" style="opacity: 0.5; font-size: 0.8em;">Admin Panel</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 SECURBOX. Усі права захищені.</p>
+                <div class="footer-payment-methods">
+                    <iconify-icon icon="logos:visa"></iconify-icon>
+                    <iconify-icon icon="logos:mastercard"></iconify-icon>
+                    <iconify-icon icon="logos:apple-pay"></iconify-icon>
+                    <iconify-icon icon="logos:google-pay"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const pageId = params.get('id');
+
+            if (pageId) {
+                const savedContent = localStorage.getItem(`page_content_${pageId}`);
+                const pageList = JSON.parse(localStorage.getItem('admin_pages_list') || '[]');
+                const pageInfo = pageList.find(p => p.id === pageId);
+
+                if (savedContent) {
+                    document.getElementById('page-content-area').innerHTML = savedContent;
+                    const title = pageInfo ? pageInfo.title : pageId;
+                    document.title = `SECURBOX — ${title}`;
+                    document.getElementById('breadcrumb-title').textContent = title;
+                } else {
+                    document.getElementById('page-content-area').innerHTML = `
+                        <div style="padding: 50px; text-align: center;">
+                            <h2>Сторінка не знайдена</h2>
+                            <p>На жаль, такої сторінки не існує або вона була видалена.</p>
+                            <a href="index.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">На головну</a>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

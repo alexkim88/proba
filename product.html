@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURBOX — Улічна поворотна IP камера 20 МП (ZA-839P-4-W)</title>
+    <meta name="description"
+        content="Камера відеоспостереження вулична Imou Bullet 2E 5MP (IPC-K3DP-5H0WF) Wi-Fi, мікрофон, прожектор">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    </head>
+
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="logo">
+                <i class="ph-fill ph-shield-check logo-icon"></i>
+                <span>SECURBOX</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Головна</a>
+                <a href="index.html#categories" data-i18n="nav_categories">Категорії</a>
+                <a href="index.html#products" data-i18n="nav_products">Популярні товари</a>
+                <a href="index.html#testimonials" data-i18n="nav_reviews" class="mobile-only-nav">Відгуки</a>
+                <a href="contacts.html" data-i18n="nav_contact">Контакти</a>
+                <a href="delivery-payment.html" data-i18n="nav_delivery">Доставка та оплата</a>
+                <a href="returns.html" data-i18n="nav_returns">Повернення та обмін</a>
+                <a href="#" id="mobileCallbackLink" class="mobile-only-nav mobile-nav-highlight">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </a>
+            </nav>
+                        <div class="header-search">
+                <div class="search-category-dd">
+                    <span data-i18n="search_all">Все</span>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="header-search-input-wrapper">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Найдите свой любимый товар..." data-i18n-placeholder="search_placeholder">
+                </div>
+                <button class="search-btn" data-i18n="search_button">Поиск</button>
+            </div>
+            <div class="header-actions">
+                <div class="lang-switch" id="langSwitch">
+                    <button class="lang-btn active" data-lang="ua">UA</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <div class="header-callback-container">
+                    <button class="header-callback-btn" id="headerCallbackTrigger">
+                        <i class="ph-fill ph-phone-call"></i>
+                        <span data-i18n="nav_callback">Передзвоніть мені</span>
+                    </button>
+                    <div class="header-callback-dropdown" id="headerCallbackDropdown">
+                        <div class="dropdown-arrow"></div>
+                        <h4 data-i18n="callback_title">Передзвоніть мені</h4>
+                        <p data-i18n="callback_desc">Залиште номер, і ми зв'яжемося з вами.</p>
+                        <form id="headerCallbackForm">
+                            <input type="text" id="hcbName" placeholder="Ваше ім'я" required
+                                data-i18n-placeholder="modal_name_placeholder">
+                            <div class="form-group">
+                                <input type="tel" id="hcbPhone" placeholder="+380" required>
+                                <div class="phone-error-msg">
+                                    <div data-i18n="error_phone">Неправильний формат запису</div>
+                                    <div class="phone-hint" data-i18n="error_phone_hint">
+                                        Вірний формат телефону: +380 00 000 00 00
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="callback_btn">Чекаю на
+                                дзвінок</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="cart.html" class="header-cart" id="headerCart">
+                    <span data-i18n="nav_cart">Кошик</span>
+                    <i class="ph-fill ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <div class="header-avatar">
+                    <i class="ph-fill ph-user-circle" style="font-size:2rem;color:var(--color-primary)"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-page">
+            <div class="container">
+
+                <!-- Breadcrumbs -->
+                <nav class="cart-breadcrumbs">
+                    <i class="ph ph-caret-double-right"></i> <a href="index.html#products" data-i18n="pdp_bc_cameras">Камери відеоспостереження</a>
+                    <i class="ph ph-caret-double-right"></i> <span>Улічна поворотна IP камера 20 МП (ZA-839P-4-W)</span>
+                </nav>
+
+                <!-- Product layout: gallery + info + service -->
+                <div class="pdp-layout">
+
+                    <!-- ===== IMAGE GALLERY ===== -->
+                    <div class="pdp-gallery">
+                        <div class="pdp-main-image" id="pdpMainImage">
+                            <img src="assets/camer/33.jpg" alt="ZA-839P-4-W 20MP Camera" id="mainProductImg">
+                        </div>
+                        <div class="pdp-thumbnails" id="pdpThumbnails">
+                            <button class="pdp-thumb active" data-img="assets/camer/33.jpg">
+                                <img src="assets/camer/33.jpg" alt="View 1">
+                            </button>
+                            <button class="pdp-thumb" data-img="assets/camer/IMG_20240222_154156.jpg">
+                                <img src="assets/camer/IMG_20240222_154156.jpg" alt="View 2">
+                            </button>
+                            <button class="pdp-thumb" data-img="assets/camer/IMG_20240222_154450.jpg">
+                                <img src="assets/camer/IMG_20240222_154450.jpg" alt="View 3">
+                            </button>
+                            <button class="pdp-thumb" data-img="assets/camer/IMG_20240222_154648.jpg">
+                                <img src="assets/camer/IMG_20240222_154648.jpg" alt="View 4">
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ===== PRODUCT INFO ===== -->
+                    <div class="pdp-info">
+                        <div class="pdp-code" data-i18n="pdp_code">Код: 21230</div>
+
+                        <h1 class="pdp-title" data-i18n="pdp_title">Улічна поворотна IP камера 20 МП Wi-Fi c зумом 20x
+                            (ZA-839P-4-W)</h1>
+
+                        <p class="pdp-short-desc" data-i18n="pdp_short_desc">20 МП, Оптичне збільшення 20x, нахил 90°,
+                            поворот 355°, двостороннє аудіо, датчик руху.</p>
+
+                        <div class="pdp-meta-row">
+                            <div class="pdp-availability">
+                                <i class="ph-fill ph-check-circle" style="color:var(--color-success)"></i>
+                                <span data-i18n="pdp_in_stock">Є в наявності</span>
+                            </div>
+
+                            <div class="pdp-rating">
+                                <span data-i18n="pdp_rating_label">Рейтинг</span>
+                                <div class="pdp-stars">
+                                    <i class="ph-fill ph-star" style="color:var(--color-star)"></i>
+                                    <i class="ph-fill ph-star" style="color:var(--color-star)"></i>
+                                    <i class="ph-fill ph-star" style="color:var(--color-star)"></i>
+                                    <i class="ph-fill ph-star" style="color:var(--color-star)"></i>
+                                    <i class="ph-fill ph-star" style="color:var(--color-star)"></i>
+                                </div>
+                                <span class="pdp-review-count">(14 <span data-i18n="pdp_reviews">відгуків</span>)</span>
+                            </div>
+                        </div>
+
+                        <!-- Price block -->
+                        <div class="pdp-price-block">
+                            <span class="pdp-price">3 990₴</span>
+                        </div>
+
+                        <!-- Quantity + buttons -->
+                        <div class="pdp-actions">
+                            <div class="pdp-qty">
+                                <span data-i18n="pdp_qty_label">Кількість:</span>
+                                <div class="qty-controls">
+                                    <button class="qty-btn" id="pdpQtyMinus">−</button>
+                                    <span class="qty-value" id="pdpQtyValue">1</span>
+                                    <button class="qty-btn" id="pdpQtyPlus">+</button>
+                                </div>
+                            </div>
+                            <div class="pdp-buttons">
+                                <button class="btn btn-primary pdp-add-cart" id="pdpAddCart">
+                                    <i class="ph-fill ph-shopping-cart"></i>
+                                    <span data-i18n="pdp_add_cart">В КОШИК</span>
+                                </button>
+                                <button class="btn pdp-buy-now btn-buy-now-quick" id="pdpBuyNow">
+                                    <i class="ph-fill ph-tote"></i>
+                                    <span data-i18n="pdp_buy_click">КУПИТИ В ОДИН КЛІК</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tabs: Description / Specs / Reviews -->
+                        <div class="pdp-tabs">
+                            <div class="pdp-tab-headers">
+                                <button class="pdp-tab-btn active" data-tab="desc"
+                                    data-i18n="pdp_tab_desc">Опис</button>
+                                <button class="pdp-tab-btn" data-tab="specs"
+                                    data-i18n="pdp_tab_specs">Характеристики</button>
+                                <button class="pdp-tab-btn" data-tab="reviews" data-i18n="pdp_tab_reviews">Відгуки
+                                    (14)</button>
+                            </div>
+                            <div class="pdp-tab-content active" id="tab-desc">
+                                <p data-i18n="pdp_desc_text"><strong>Оптичне збільшення в 20 раз:</strong> забезпечує
+                                    чітке зображення віддалених об'єктів.<br><strong>Широкий кут огляду:</strong> нахил
+                                    на 90° та поворот на 355°.<br><strong>Двостороннє аудіо:</strong> вбудовані
+                                    мікрофони та динамік дозволяють чути та спілкуватися через камеру.<br><strong>Датчик
+                                        руху:</strong> надсилає сповіщення на телефон при виявленні активності.<br><br>
+                                    <strong>Комплектація:</strong><br>
+                                    1 х Камера ZA-839P-4-W<br>
+                                    1 х Блок живлення<br>
+                                    1 х Інструкція<br>
+                                    1 х Монтажний набір<br>
+                                    1 х Коробка
+                                </p>
+                            </div>
+                            <div class="pdp-tab-content" id="tab-specs">
+                                <table class="pdp-specs-table">
+                                    <tr>
+                                        <td data-i18n="spec_model">Модель</td>
+                                        <td>ZA-839P-4-W</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_lens">Оптичне збільшення</td>
+                                        <td>20x</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_resolution">Роздільна здатність</td>
+                                        <td>20 МП</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_night_max">Максимальна дальність зйомки</td>
+                                        <td data-i18n="spec_night_val">до 50 м</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_mic_detail">Двостороннє аудіо</td>
+                                        <td data-i18n="spec_mic_val">вбудовані мікрофон та динамік</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_motion_detail">Датчик руху</td>
+                                        <td data-i18n="spec_motion_val">відправляв сповіщення на телефон</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_multi_user">Підтримка багатокористувацького доступу</td>
+                                        <td data-i18n="spec_multi_user_val">до 5 користувачів</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_tilt_v">Нахил повороту по вертикалі</td>
+                                        <td>90°</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_tilt_h">Нахил повороту по горизонталі</td>
+                                        <td>355°</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_shooting_mode">Режим зйомки</td>
+                                        <td data-i18n="spec_day_night">день / ніч</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_lighting">Підсвітка</td>
+                                        <td data-i18n="spec_ir_led">Інфрачервона підсвітка / LED</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_mount">Кріплення</td>
+                                        <td data-i18n="spec_mount_val">стельове / настінне</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_protect">Матеріал корпусу</td>
+                                        <td data-i18n="spec_plastic">пластик</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_codec">Формат стиснення</td>
+                                        <td>H.264</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_storage">Карти пам'яті</td>
+                                        <td>micro SD (до 128ГБ)</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_cloud">Підтримка хмарного сховища</td>
+                                        <td data-i18n="spec_yes_sub">так (за підпискою)</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_os">Сумісність з ОС</td>
+                                        <td>Windows, Mac OS</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_app">Мобільний додаток</td>
+                                        <td>IPC360 HOME (iOS та Android)</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_connect">Підключення</td>
+                                        <td data-i18n="spec_wifi_cable">Wi-Fi: 2.4 ГГц, Кабель: RJ-45</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="spec_power">Живлення</td>
+                                        <td>220В</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="pdp-tab-content" id="tab-reviews">
+                                <div id="dynamicReviewsList"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="pdp-sidebar">
+                <div class="pdp-service">
+                    <h3 data-i18n="pdp_service_title">Сервіс та послуги</h3>
+                    <div class="pdp-service-item">
+                        <i class="ph-fill ph-truck pdp-service-icon"></i>
+                        <div>
+                            <strong data-i18n="pdp_serv_delivery">Безкоштовна доставка</strong>
+                            <span data-i18n="pdp_serv_delivery_sub">На замовлення від 2000₴</span>
+                        </div>
+                    </div>
+                    <div class="pdp-service-item">
+                        <i class="ph-fill ph-headphones pdp-service-icon"></i>
+                        <div>
+                            <strong data-i18n="pdp_serv_support">Технічна підтримка</strong>
+                            <span data-i18n="pdp_serv_support_sub">24/7 консультація</span>
+                        </div>
+                    </div>
+                    <div class="pdp-service-item">
+                        <i class="ph-fill ph-shield-check pdp-service-icon"></i>
+                        <div>
+                            <strong data-i18n="pdp_serv_warranty">Гарантія 12 місяців</strong>
+                            <span data-i18n="pdp_serv_warranty_sub">Офіційна гарантія виробника</span>
+                        </div>
+                    </div>
+                    <div class="pdp-service-item pdp-service-discount">
+                        <i class="ph-fill ph-tags pdp-service-icon"></i>
+                        <div>
+                            <strong data-i18n="pdp_serv_discount">ЗНИЖКА 20%</strong>
+                            <span data-i18n="pdp_serv_discount_sub">на заміну або ремонт</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEAVE A REVIEW FORM -->
+                <div class="pdp-review-form-wrapper">
+                    <h4 data-i18n="pdp_leave_review_title">Залишити відгук</h4>
+                    <form id="pdpReviewForm" class="pdp-review-form">
+                        <div class="form-group">
+                            <label for="reviewerName" data-i18n="pdp_review_name">Ваше ім'я</label>
+                            <input type="text" id="reviewerName" required placeholder="Іван Іванов"
+                                data-i18n-placeholder="pdp_review_name_ph">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="pdp_review_rating_label">Оцінка</label>
+                            <div class="rating-select" id="reviewRatingSelect">
+                                <i class="ph ph-star" data-val="1"></i>
+                                <i class="ph ph-star" data-val="2"></i>
+                                <i class="ph ph-star" data-val="3"></i>
+                                <i class="ph ph-star" data-val="4"></i>
+                                <i class="ph ph-star" data-val="5"></i>
+                            </div>
+                            <input type="hidden" id="reviewRatingInput" required min="1" max="5" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewerText" data-i18n="pdp_review_text_label">Ваш відгук</label>
+                            <textarea id="reviewerText" rows="4" required placeholder="Напишіть ваші враження..."
+                                data-i18n-placeholder="pdp_review_text_ph"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitReviewBtn"
+                            data-i18n="pdp_review_submit">Відправити відгук</button>
+                    </form>
+                </div>
+            </aside>
+            </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_info">Інформація</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="footer_about">Про нас</a></li>
+                        <li><a href="#" data-i18n="footer_wholesale">Оптовим клієнтам</a></li>
+                        <li><a href="#" data-i18n="footer_offer">Публічна оферта</a></li>
+                        <li><a href="returns.html" data-i18n="footer_return_policy">Політика повернення товару</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_categories">Категорії</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="category.html?id=cat_cameras" data-i18n="cat_cameras">Камери відеоспостереження</a></li>
+                        <li><a href="category.html?id=cat_lighting" data-i18n="cat_lighting">Розумне освітлення</a></li>
+                        <li><a href="category.html?id=cat_health" data-i18n="cat_health">Краса та здоров'я</a></li>
+                        <li><a href="category.html?id=cat_accessories" data-i18n="cat_accessories">Аксесуари та гаджети</a></li>
+                        <li><a href="category.html?id=cat_other" data-i18n="cat_other">Інше</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_working_hours">Час роботи</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div class="footer-schedule">
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-clock" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: #fff; font-weight: 600; font-size: 0.95rem;" data-i18n="footer_time_weekdays">ПН-ПТ: 09:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-calendar-blank" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;" data-i18n="footer_time_weekend">СБ-ВС: вихідний</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 22px;">
+                        <span data-i18n="footer_social_text" style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 12px; color: #fff;">Ми в соціальних мережах:</span>
+                        <div class="footer-socials">
+                            <a href="#" aria-label="facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="#" aria-label="instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="#" aria-label="youtube"><i class="ph-fill ph-youtube-logo"></i></a>
+                            <a href="#" aria-label="tiktok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_contacts_title">Наші контакти</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="tel:+380663842433" style="font-weight: 700; font-size: 1.2rem; color: #fff;">+38 (066)384-24-33</a>
+                        <a href="mailto:zakaz@magnitek.ua" style="text-decoration: underline; color: var(--color-text-secondary); font-size: 1.05rem;">zakaz@magnitek.ua</a>
+                        <div style="color: var(--color-text-secondary); line-height: 1.5; font-size: 0.95rem; margin-top: 5px;" data-i18n="footer_address">м. Харків, вул. Василя Стуса, 4а,<br>61154</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 SECURBOX. Усі права захищені.</p>
+                <div class="footer-payment-methods">
+                    <iconify-icon icon="logos:visa"></iconify-icon>
+                    <iconify-icon icon="logos:mastercard"></iconify-icon>
+                    <iconify-icon icon="logos:apple-pay"></iconify-icon>
+                    <iconify-icon icon="logos:google-pay"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== QUICK BUY MODAL ===================== -->
+    <div class="modal-overlay" id="quickBuyModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeQuickBuy">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="modal_title">Купити в один клік</h2>
+                <p data-i18n="modal_desc">Залиште ваші дані, і ми зателефонуємо вам.</p>
+            </div>
+            <form id="quickBuyForm" class="modal-form">
+                <div class="form-group">
+                    <label for="qbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="qbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="qbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="qbPhone" name="phone" required placeholder="+380">
+                    <div class="phone-error-msg">
+                        <div data-i18n="error_phone">Неправильний формат запису</div>
+                        <div class="phone-hint" data-i18n="error_phone_hint">
+                            Вірний формат телефону: +380 00 000 00 00
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="modal_btn">Оформити
+                    замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== MOBILE BOTTOM NAV ===================== -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="ph-fill ph-house"></i>
+            <span data-i18n="nav_home">Головна</span>
+        </a>
+        <a href="index.html#categories" class="mobile-nav-item">
+            <i class="ph-fill ph-squares-four"></i>
+            <span data-i18n="nav_categories">Категорії</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item mobile-nav-cart">
+            <i class="ph-fill ph-shopping-cart"></i>
+            <span data-i18n="nav_cart">Кошик</span>
+            <span class="cart-badge">0</span>
+        </a>
+        <a href="index.html#contact" class="mobile-nav-item">
+            <i class="ph-fill ph-phone-call"></i>
+            <span data-i18n="nav_contact">Контакти</span>
+        </a>
+    </nav>
+
+    <!-- ===================== CALLBACK MODAL ===================== -->
+    <div class="modal-overlay" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeCallbackModal">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="callback_title">Замовити дзвінок</h2>
+                <p data-i18n="callback_desc">Введіть номер, і ми передзвонимо вам якнайшвидше.</p>
+            </div>
+            <form id="callbackForm" class="modal-form">
+                <div class="form-group">
+                    <label for="cbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="cbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="cbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="cbPhone" name="phone" required placeholder="+380">
+                    <div class="phone-error-msg">
+                        <div data-i18n="error_phone">Неправильний формат запису</div>
+                        <div class="phone-hint" data-i18n="error_phone_hint">
+                            Вірний формат телефону: +380 00 000 00 00
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="callback_btn">Передзвоніть
+                    мені</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== SUCCESS MODAL ===================== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content" style="max-width: 400px; text-align: center; padding: 40px 30px;">
+            <button class="modal-close" id="closeSuccessModal">&times;</button>
+            <div class="modal-success-msg">
+                <div style="font-size: 4rem; color: #10b981; margin-bottom: 20px;">
+                    <i class="ph-fill ph-check-circle"></i>
+                </div>
+                <h2 id="successModalTitle"
+                    style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 15px;">Дякуємо!</h2>
+                <p id="successModalDesc"
+                    style="color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 25px;">Ми отримали
+                    вашу заявку та скоро зв’яжемося з вами.</p>
+                <button class="btn btn-primary" id="successModalBtn" style="width: 100%;">ОК</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FLOATING ACTIONS ===================== -->
+    <div class="floating-actions">
+        <button class="btn-callback-float" id="openCallbackBtn" title="Замовити дзвінок">
+            <i class="ph-fill ph-phone-call"></i>
+            <span class="pulse-ring"></span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

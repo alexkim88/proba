@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURBOX — Цілодобовий захист відеоспостереження</title>
+    <meta name="description"
+        content="Преміальні камери відеоспостереження та системи безпеки. Сучасний захист вашого дому та бізнесу з моніторингом у реальному часі.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css?v=1774913250">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+</head>
+
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="#" class="logo">
+                <i class="ph-fill ph-shield-check logo-icon"></i>
+                <span>SECURBOX</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="#products" data-i18n="nav_products">Популярні товари</a>
+                <a href="#testimonials" data-i18n="nav_reviews" class="mobile-only-nav">Відгуки</a>
+                <a href="contacts.html" data-i18n="nav_contact">Контакти</a>
+                <a href="delivery-payment.html" data-i18n="nav_delivery">Доставка та оплата</a>
+                <a href="returns.html" data-i18n="nav_returns">Повернення та обмін</a>
+                <a href="#" id="mobileCallbackLink" class="mobile-only-nav mobile-nav-highlight">
+                    <i class="ph-fill ph-phone-volume"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </a>
+            </nav>
+                        <div class="header-search">
+                <div class="search-category-dd">
+                    <span data-i18n="search_all">Все</span>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="header-search-input-wrapper">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Найдите свой любимый товар..." data-i18n-placeholder="search_placeholder">
+                </div>
+                <button class="search-btn" data-i18n="search_button">Поиск</button>
+            </div>
+            <div class="header-actions">
+                <div class="lang-switch" id="langSwitch">
+                    <button class="lang-btn active" data-lang="ua">UA</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <div class="header-callback-container">
+                    <button class="header-callback-btn" id="headerCallbackTrigger">
+                        <i class="ph-fill ph-phone-volume"></i>
+                        <span data-i18n="nav_callback">Передзвоніть мені</span>
+                    </button>
+                    <div class="header-callback-dropdown" id="headerCallbackDropdown">
+                        <div class="dropdown-arrow"></div>
+                        <h4 data-i18n="callback_title">Передзвоніть мені</h4>
+                        <p data-i18n="callback_desc">Залиште номер, і ми зв'яжемося з вами.</p>
+                        <form id="headerCallbackForm">
+                            <input type="text" id="hcbName" placeholder="Ваше ім'я" required
+                                data-i18n-placeholder="modal_name_placeholder">
+                            <div class="form-group">
+                                <input type="tel" id="hcbPhone" placeholder="+380" required>
+                                <div class="phone-error-msg">
+                                    <div data-i18n="error_phone">Неправильний формат запису</div>
+                                    <div class="phone-hint" data-i18n="error_phone_hint">
+                                        Вірний формат телефону: +380 00 000 00 00
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="callback_btn">Чекаю на
+                                дзвінок</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="cart.html" class="header-cart" id="headerCart">
+                    <span data-i18n="nav_cart">Кошик</span>
+                    <i class="ph-fill ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <div class="header-avatar">
+                    <i class="ph-fill ph-user-circle" style="font-size:2rem;color:var(--color-primary)"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===================== HERO ===================== -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-main-layout">
+                    <!-- Hero Categories Sidebar -->
+                    <div class="hero-categories-sidebar">
+                        <div class="hero-cat-header">
+                            <i class="ph ph-list"></i>
+                            <span data-i18n="hero_cat_title">Все категорії</span>
+                            <i class="ph ph-caret-down"></i>
+                        </div>
+
+                        <a href="category.html?id=cat_cameras" class="hero-cat-item">
+                            <i class="ph ph-video-camera hero-cat-icon"></i>
+                            <span data-i18n="cat_cameras">Камери відеоспостереження</span>
+                            <i class="ph ph-caret-right hero-cat-arrow"></i>
+                        </a>
+                        <a href="category.html?id=cat_lighting" class="hero-cat-item">
+                            <i class="ph ph-lightbulb hero-cat-icon"></i>
+                            <span data-i18n="cat_lighting">Розумне освітлення</span>
+                            <i class="ph ph-caret-right hero-cat-arrow"></i>
+                        </a>
+                        <a href="category.html?id=cat_health" class="hero-cat-item">
+                            <i class="ph ph-heart hero-cat-icon"></i>
+                            <span data-i18n="cat_health">Краса та здоров'я</span>
+                            <i class="ph ph-caret-right hero-cat-arrow"></i>
+                        </a>
+                        <a href="category.html?id=cat_accessories" class="hero-cat-item">
+                            <i class="ph ph-plug hero-cat-icon"></i>
+                            <span data-i18n="cat_accessories">Аксесуари та гаджети</span>
+                            <i class="ph ph-caret-right hero-cat-arrow"></i>
+                        </a>
+                        <a href="category.html?id=cat_other" class="hero-cat-item">
+                            <i class="ph ph-package hero-cat-icon"></i>
+                            <span data-i18n="cat_other">Інше</span>
+                            <i class="ph ph-caret-right hero-cat-arrow"></i>
+                        </a>
+                    </div>
+
+                    <!-- Main Slider -->
+                    <div class="hero-slider-box">
+                        <div class="slider-container">
+                            <div class="slider-wrapper" id="heroSlider">
+                                <!-- Slide 1 -->
+                                <div class="slide active">
+                                    <div class="slide-bg" style="background-image: url('assets/banner/1.jpg')"></div>
+                                    <div class="slide-overlay"></div>
+                                    <div class="slide-content">
+                                        <h1 data-i18n="hero_spring_sale">ВЕСНЯНІ<br>ЗНИЖКИ</h1>
+                                        <div class="sale-badge">до <span class="percent">61</span>%</div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="slide">
+                                    <div class="slide-bg" style="background-image: url('assets/banner/2.jpg')"></div>
+                                    <div class="slide-overlay"></div>
+                                    <div class="slide-content">
+                                        <h1 data-i18n="hero_title_2">Інноваційні<br>Системи</h1>
+                                        <p data-i18n="hero_desc_2">Нове покоління безпеки з інтелектуальним
+                                            розпізнаванням.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slider Controls -->
+                            <button class="slider-arrow prev" id="sliderPrev">
+                                <i class="ph ph-caret-circle-left"></i>
+                            </button>
+                            <button class="slider-arrow next" id="sliderNext">
+                                <i class="ph ph-caret-circle-right"></i>
+                            </button>
+
+                            <!-- Progress Bar -->
+                            <div class="slider-progress-container">
+                                <div class="slider-progress-bar" id="sliderProgressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== TRUST BAR ===================== -->
+        <section class="trust-bar" id="trust-section">
+            <div class="container trust-inner">
+                <div class="trust-item">
+                    <i class="ph-fill ph-package trust-icon"></i>
+                    <div>
+                        <strong data-i18n="trust_replace">Обмін протягом 7 днів</strong>
+                        <span data-i18n="trust_replace_sub">Без зайвих складнощів</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="ph-fill ph-truck trust-icon"></i>
+                    <div>
+                        <strong data-i18n="trust_shipping">Доставка Новою Поштою</strong>
+                        <span data-i18n="trust_shipping_sub">По всій Україні</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="ph-fill ph-headphones trust-icon"></i>
+                    <div>
+                        <strong data-i18n="trust_support">Підтримка 24/7</strong>
+                        <span data-i18n="trust_support_sub">Ми завжди на зв'язку</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== BROWSE BY CATEGORY ===================== -->
+        <section class="categories" id="categories">
+            <div class="container">
+                <h2 class="section-title" data-i18n="cat_title">Категорії</h2>
+                <div class="categories-grid" id="mainCategoriesGrid">
+                    <!-- Categories loaded dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== FEATURED PRODUCTS ===================== -->
+        <section class="featured-products" id="products">
+            <div class="container">
+                <h2 class="section-title" data-i18n="prod_title">Популярні товари</h2>
+
+                <div class="products-controls">
+                    <button class="btn-filters" id="filtersBtn">
+                        <i class="ph-fill ph-funnel"></i>
+                        <span data-i18n="filters_btn">Фільтри</span>
+                    </button>
+                </div>
+
+                <div class="products-carousel-wrapper">
+                    <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Previous">
+                        <i class="ph ph-caret-circle-left"></i>
+                    </button>
+                    <div class="products-carousel" id="productsCarousel">
+                        <!-- Dynamic products -->
+                    </div>
+                    <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Next">
+                        <i class="ph ph-caret-circle-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== TESTIMONIALS ===================== -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title" data-i18n="test_title">Відгуки наших клієнтів</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <p data-i18n="test1_text">"Широкий вибір IP-камер для відеоспостереження, всі прості у
+                            використанні та надійні."</p>
+                        <div class="testimonial-author">
+                            <i class="ph-fill ph-user-circle" style="font-size:2.5rem;color:var(--color-primary)"></i>
+                            <div>
+                                <strong>Андрій К.</strong>
+                                <span data-i18n="test1_role">Домашня безпека</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card testimonial-highlight">
+                        <div class="testimonial-stars">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <p data-i18n="test2_text">"Чудові WiFi-камери у поєднанні з підтримкою 24/7. Тепер я впевнена,
+                            що мій бізнес под захистом з усіх боків."</p>
+                        <div class="testimonial-author">
+                            <i class="ph-fill ph-user-circle" style="font-size:2.5rem;color:#fff"></i>
+                            <div>
+                                <strong>Олена М.</strong>
+                                <span data-i18n="test2_role">Власник бізнесу</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <p data-i18n="test3_text">"Професійне встановлення та швидка доставка. Якість камер перевершила
+                            мої очікування."</p>
+                        <div class="testimonial-author">
+                            <i class="ph-fill ph-user-circle" style="font-size:2.5rem;color:var(--color-primary)"></i>
+                            <div>
+                                <strong>Дмитро С.</strong>
+                                <span data-i18n="test3_role">Офіс-менеджер</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== ARTICLES ===================== -->
+        <section class="articles" id="articles-section">
+            <div class="container">
+                <div class="articles-header">
+                    <h2 class="section-title" data-i18n="art_title">Останні статті</h2>
+                    <a href="#" class="articles-view-all" data-i18n="art_view_all">Дивитись все →</a>
+                </div>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="article-thumb">
+                            <img src="assets/cam2.png" alt="Article thumbnail">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-date">20 лют 2026</span>
+                            <h3 data-i18n="art1_title">Розумні замки та безпека: майбутнє захисту</h3>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-thumb">
+                            <img src="assets/cam3.png" alt="Article thumbnail">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-date">15 лют 2026</span>
+                            <h3 data-i18n="art2_title">Зовнішні системи безпеки: повний гід покупця</h3>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-thumb">
+                            <img src="assets/cam4.png" alt="Article thumbnail">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-date">10 лют 2026</span>
+                            <h3 data-i18n="art3_title">DVR, NVR чи XVR: розбираємось у відеореєстраторах</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== NEWSLETTER ===================== -->
+        <section class="newsletter" id="contact">
+            <div class="container newsletter-inner">
+                <div class="newsletter-text">
+                    <h2 data-i18n="news_title">Будьте в курсі подій!</h2>
+                    <p data-i18n="news_desc">Отримуйте поради з безпеки, оновлення товарів та ексклюзивні пропозиції
+                        на вашу пошту.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" data-i18n-placeholder="news_placeholder" placeholder="Введіть вашу email адресу"
+                        required>
+                    <button type="submit" class="btn btn-primary" data-i18n="news_btn">Підписатись</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_info">Інформація</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="footer_about">Про нас</a></li>
+                        <li><a href="#" data-i18n="footer_wholesale">Оптовим клієнтам</a></li>
+                        <li><a href="#" data-i18n="footer_offer">Публічна оферта</a></li>
+                        <li><a href="returns.html" data-i18n="footer_return_policy">Політика повернення товару</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_categories">Категорії</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="category.html?id=cat_cameras" data-i18n="cat_cameras">Камери відеоспостереження</a>
+                        </li>
+                        <li><a href="category.html?id=cat_lighting" data-i18n="cat_lighting">Розумне освітлення</a></li>
+                        <li><a href="category.html?id=cat_health" data-i18n="cat_health">Краса та здоров'я</a></li>
+                        <li><a href="category.html?id=cat_accessories" data-i18n="cat_accessories">Аксесуари та
+                                гаджети</a></li>
+                        <li><a href="category.html?id=cat_other" data-i18n="cat_other">Інше</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_working_hours">Час роботи</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div class="footer-schedule">
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-clock"
+                                style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: #fff; font-weight: 600; font-size: 0.95rem;"
+                                    data-i18n="footer_time_weekdays">ПН-ПТ: 09:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-calendar-blank"
+                                style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;"
+                                    data-i18n="footer_time_weekend">СБ-ВС: вихідний</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 22px;">
+                        <span data-i18n="footer_social_text"
+                            style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 12px; color: #fff;">Ми
+                            в соціальних мережах:</span>
+                        <div class="footer-socials">
+                            <a href="#" aria-label="facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="#" aria-label="instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="#" aria-label="youtube"><i class="ph-fill ph-youtube-logo"></i></a>
+                            <a href="#" aria-label="tiktok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_contacts_title">Наші контакти</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="tel:+380663842433" style="font-weight: 700; font-size: 1.2rem; color: #fff;">+38
+                            (066)384-24-33</a>
+                        <a href="mailto:zakaz@magnitek.ua"
+                            style="text-decoration: underline; color: var(--color-text-secondary); font-size: 1.05rem;">zakaz@magnitek.ua</a>
+                        <div style="color: var(--color-text-secondary); line-height: 1.5; font-size: 0.95rem; margin-top: 5px;"
+                            data-i18n="footer_address">м. Харків, вул. Василя Стуса, 4а,<br>61154</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 SECURBOX. Усі права захищені.</p>
+                <div class="footer-payment-methods">
+                    <iconify-icon icon="logos:visa"></iconify-icon>
+                    <iconify-icon icon="logos:mastercard"></iconify-icon>
+                    <iconify-icon icon="logos:apple-pay"></iconify-icon>
+                    <iconify-icon icon="logos:google-pay"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== QUICK BUY MODAL ===================== -->
+    <div class="modal-overlay" id="quickBuyModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeQuickBuy">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="modal_title">Купити в один клік</h2>
+                <p><span id="qbProductName" style="color: var(--color-primary); font-weight: 600;"></span></p>
+                <p data-i18n="modal_desc">Залиште ваші дані, і ми зателефонуємо вам.</p>
+            </div>
+            <form id="quickBuyForm" class="modal-form">
+                <div class="form-group">
+                    <label for="qbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="qbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="qbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="qbPhone" name="phone" required placeholder="+380">
+                    <div class="phone-error-msg">
+                        <div data-i18n="error_phone">Неправильний формат запису</div>
+                        <div class="phone-hint" data-i18n="error_phone_hint">
+                            Вірний формат телефону: +380 00 000 00 00
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="modal_btn">Оформити
+                    замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== MOBILE BOTTOM NAV ===================== -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item active">
+            <i class="ph ph-house"></i>
+            <span data-i18n="nav_home">Головна</span>
+        </a>
+        <a href="index.html#categories" class="mobile-nav-item">
+            <i class="ph ph-squares-four"></i>
+            <span data-i18n="nav_categories">Категорії</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item mobile-nav-cart">
+            <i class="ph ph-shopping-cart"></i>
+            <span data-i18n="nav_cart">Кошик</span>
+            <span class="cart-badge" id="mobileCartBadge">0</span>
+        </a>
+        <a href="contacts.html" class="mobile-nav-item">
+            <i class="ph ph-phone"></i>
+            <span data-i18n="nav_contact">Контакти</span>
+        </a>
+    </nav>
+
+    <!-- ===================== CALLBACK MODAL ===================== -->
+    <div class="modal-overlay" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeCallbackModal">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="callback_title">Замовити дзвінок</h2>
+                <p data-i18n="callback_desc">Введіть номер, і ми передзвонимо вам якнайшвидше.</p>
+            </div>
+            <form id="callbackForm" class="modal-form">
+                <div class="form-group">
+                    <label for="cbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="cbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="cbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="cbPhone" name="phone" required placeholder="+380">
+                    <div class="phone-error-msg">
+                        <div data-i18n="error_phone">Неправильний формат запису</div>
+                        <div class="phone-hint" data-i18n="error_phone_hint">
+                            Вірний формат телефону: +380 00 000 00 00
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="callback_btn">Передзвоніть
+                    мені</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== SUCCESS MODAL ===================== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content" style="max-width: 400px; text-align: center; padding: 40px 30px;">
+            <button class="modal-close" id="closeSuccessModal">&times;</button>
+            <div class="modal-success-msg">
+                <div style="font-size: 4rem; color: #10b981; margin-bottom: 20px;">
+                    <i class="ph ph-check-circle"></i>
+                </div>
+                <h2 id="successModalTitle"
+                    style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 15px;">Дякуємо!</h2>
+                <p id="successModalDesc"
+                    style="color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 25px;">Ми отримали
+                    вашу заявку та скоро зв’яжемося з вами.</p>
+                <button class="btn btn-primary" id="successModalBtn" style="width: 100%;">ОК</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FLOATING ACTIONS ===================== -->
+    <div class="floating-actions">
+        <button class="btn-callback-float" id="openCallbackBtn" title="Замовити дзвінок">
+            <i class="ph ph-phone"></i>
+            <span class="pulse-ring"></span>
+        </button>
+    </div>
+
+
+    <!-- ===================== FILTERS PANEL ===================== -->
+    <div class="filters-overlay" id="filtersOverlay"></div>
+    <div class="filters-panel" id="filtersPanel">
+        <div class="filters-header">
+            <h2 data-i18n="filters_title">Фільтри</h2>
+            <button class="filters-close" id="closeFiltersBtn">&times;</button>
+        </div>
+        <div class="filters-body">
+            <!-- Category -->
+            <div class="filter-group">
+                <label for="categoryFilter" data-i18n="filters_category">Категорія</label>
+                <div class="select-wrapper">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all" data-i18n="filters_cat_all">Всі категорії</option>
+                        <!-- Other categories will be rendered dynamically -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sorting -->
+            <div class="filter-group">
+                <label data-i18n="filters_sort">Сортування</label>
+                <div class="select-wrapper">
+                    <select id="sortFilter" class="filter-select">
+                        <option value="popularity" data-i18n="sort_popularity">популярністю</option>
+                        <option value="cheap" data-i18n="sort_cheap">від дешевих до дорогих</option>
+                        <option value="expensive" data-i18n="sort_expensive">від дорогих до дешевих</option>
+                        <option value="name" data-i18n="sort_name">назвою</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="filter-group">
+                <label for="catalogSearch" data-i18n="filters_search">Пошук за назвою</label>
+                <div class="search-input-wrapper">
+                    <i class="ph-fill ph-magnifying-glass"></i>
+                    <input type="text" id="catalogSearch" placeholder="Введіть назву..."
+                        data-i18n-placeholder="filters_search_ph">
+                </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+                <label data-i18n="filters_price">Ціна (₴)</label>
+                <div class="price-range-slider">
+                    <div class="price-inputs">
+                        <input type="number" id="priceMinInput" value="0" min="0">
+                        <span>—</span>
+                        <input type="number" id="priceMaxInput" value="10000" min="0">
+                    </div>
+                    <div class="range-slider-wrapper">
+                        <div class="range-track" id="rangeTrack"></div>
+                        <input type="range" id="priceMinSlider" min="0" max="10000" value="0" step="10">
+                        <input type="range" id="priceMaxSlider" min="0" max="10000" value="10000" step="10">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filters-footer">
+            <button class="btn btn-outline" id="resetFiltersBtn" data-i18n="filters_reset">Скинути</button>
+            <button class="btn btn-primary" id="applyFiltersBtn" data-i18n="filters_apply">Застосувати</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/js/intlTelInput.min.js"></script>
+    <script src="script.js?v=1774913312"></script>
+</body>
+
+</html>

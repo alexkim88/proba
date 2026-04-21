@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURBOX — Кошик</title>
+    <meta name="description" content="Ваш кошик покупок SECURBOX">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    </head>
+
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="logo">
+                <i class="ph-fill ph-shield-check logo-icon"></i>
+                <span>SECURBOX</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" data-i18n="nav_home">Головна</a>
+                <a href="index.html#categories" data-i18n="nav_categories">Категорії</a>
+                <a href="index.html#products" data-i18n="nav_products">Популярні товари</a>
+                <a href="index.html#testimonials" data-i18n="nav_reviews" class="mobile-only-nav">Відгуки</a>
+                <a href="index.html#contact" data-i18n="nav_contact">Контакти</a>
+                <a href="delivery-payment.html" data-i18n="nav_delivery">Доставка та оплата</a>
+                <a href="returns.html" data-i18n="nav_returns">Повернення та обмін</a>
+                <a href="#" id="mobileCallbackLink" class="mobile-only-nav mobile-nav-highlight">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span data-i18n="nav_callback">Передзвоніть мені</span>
+                </a>
+            </nav>
+                        <div class="header-search">
+                <div class="search-category-dd">
+                    <span data-i18n="search_all">Все</span>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="header-search-input-wrapper">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Найдите свой любимый товар..." data-i18n-placeholder="search_placeholder">
+                </div>
+                <button class="search-btn" data-i18n="search_button">Поиск</button>
+            </div>
+            <div class="header-actions">
+                <div class="lang-switch" id="langSwitch">
+                    <button class="lang-btn active" data-lang="ua">UA</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <div class="header-callback-container">
+                    <button class="header-callback-btn" id="headerCallbackTrigger">
+                        <i class="ph-fill ph-phone-call"></i>
+                        <span data-i18n="nav_callback">Передзвоніть мені</span>
+                    </button>
+                    <div class="header-callback-dropdown" id="headerCallbackDropdown">
+                        <div class="dropdown-arrow"></div>
+                        <h4 data-i18n="callback_title">Передзвоніть мені</h4>
+                        <p data-i18n="callback_desc">Залиште номер, і ми зв'яжемося з вами.</p>
+                        <form id="headerCallbackForm">
+                            <input type="text" id="hcbName" placeholder="Ваше ім'я" required
+                                data-i18n-placeholder="modal_name_placeholder">
+                            <div class="form-group">
+                                <input type="tel" id="hcbPhone" placeholder="+380" required>
+                                <div class="phone-error-msg">
+                                    <div data-i18n="error_phone">Неправильний формат запису</div>
+                                    <div class="phone-hint" data-i18n="error_phone_hint">
+                                        Вірний формат телефону: +380 00 000 00 00
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="callback_btn">Чекаю на
+                                дзвінок</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="cart.html" class="header-cart" id="headerCart">
+                    <span data-i18n="nav_cart">Кошик</span>
+                    <i class="ph-fill ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <div class="header-avatar">
+                    <i class="ph-fill ph-user-circle" style="font-size:2rem;color:var(--color-primary)"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===================== CART PAGE ===================== -->
+        <section class="cart-page">
+            <div class="container">
+                <!-- Breadcrumbs -->
+                <nav class="cart-breadcrumbs">
+                    <i class="ph ph-caret-double-right"></i> <span data-i18n="cart_page_title">Кошик</span>
+                </nav>
+
+                <h1 class="cart-heading" data-i18n="cart_page_title">Кошик</h1>
+
+                <!-- Empty cart state -->
+                <div class="cart-empty" id="cartEmpty" style="display:none;">
+                    <i class="ph-fill ph-shopping-cart" style="font-size:4rem;color:var(--color-text-muted)"></i>
+                    <p data-i18n="cart_empty">Ваш кошик порожній</p>
+                    <a href="index.html#products" class="btn btn-primary" data-i18n="cart_continue">Продовжити
+                        покупки</a>
+                </div>
+
+                <!-- Cart with items -->
+                <div class="cart-content" id="cartContent" style="display:none;">
+                    <div class="cart-layout">
+                        <!-- Items list -->
+                        <div class="cart-items-section">
+                            <!-- Table header -->
+                            <div class="cart-table-header">
+                                <span class="cart-col-product" data-i18n="cart_product">Товар</span>
+                                <span class="cart-col-price" data-i18n="cart_price">Ціна</span>
+                                <span class="cart-col-qty" data-i18n="cart_qty">Кількість</span>
+                                <span class="cart-col-total" data-i18n="cart_total">Сума</span>
+                                <span class="cart-col-remove"></span>
+                            </div>
+                            <!-- Cart items rendered by JS -->
+                            <div class="cart-items-list" id="cartItemsList"></div>
+
+                            <!-- Checkout Form -->
+                            <div class="checkout-section">
+                                <form id="checkoutForm" class="checkout-form">
+                                    <!-- Contact Info -->
+                                    <div class="checkout-block">
+                                        <h3 class="checkout-block-title">
+                                            <i class="ph-fill ph-user"></i>
+                                            <span data-i18n="checkout_contact_title">Контактні дані</span>
+                                        </h3>
+                                        <div class="checkout-grid">
+                                            <div class="form-group">
+                                                <label for="checkoutFirstName"
+                                                    data-i18n="checkout_first_name">Ім'я</label>
+                                                <input type="text" id="checkoutFirstName" name="first_name" required
+                                                    placeholder="Іван" data-i18n-placeholder="checkout_first_name_ph">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="checkoutLastName"
+                                                    data-i18n="checkout_last_name">Прізвище</label>
+                                                <input type="text" id="checkoutLastName" name="last_name" required
+                                                    placeholder="Іванов" data-i18n-placeholder="checkout_last_name_ph">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="checkoutPhone" data-i18n="checkout_phone">Телефон</label>
+                                                <input type="tel" id="checkoutPhone" name="phone" required
+                                                    placeholder="+380" data-i18n-placeholder="checkout_phone_ph">
+                                                <div class="phone-error-msg">
+                                                    <div data-i18n="error_phone">Неправильний формат запису</div>
+                                                    <div class="phone-hint" data-i18n="error_phone_hint">
+                                                        Вірний формат телефону: +380 00 000 00 00
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="checkoutEmail" data-i18n="checkout_email">Email</label>
+                                                <input type="email" id="checkoutEmail" name="email"
+                                                    placeholder="email@example.com"
+                                                    data-i18n-placeholder="checkout_email_ph">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Delivery -->
+                                    <div class="checkout-block">
+                                        <h3 class="checkout-block-title">
+                                            <i class="ph-fill ph-truck"></i>
+                                            <span data-i18n="checkout_delivery_title">Доставка</span>
+                                        </h3>
+                                        <div class="form-group mb-4">
+                                            <label for="checkoutRegion" data-i18n="checkout_region">Область</label>
+                                            <input type="text" id="checkoutRegion" name="region" required placeholder="Київська область"
+                                                data-i18n-placeholder="checkout_region_ph" autocomplete="off">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label for="checkoutCity" data-i18n="checkout_city">Місто</label>
+                                            <input type="text" id="checkoutCity" name="city" required placeholder="Київ"
+                                                data-i18n-placeholder="checkout_city_ph" autocomplete="off">
+                                        </div>
+                                        <div class="delivery-methods">
+                                            <label class="method-card">
+                                                <input type="radio" name="deliveryMethod" value="nova_poshta" checked>
+                                                <div class="method-content">
+                                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                                                        <rect width="40" height="40" rx="8" fill="#ED1C24" />
+                                                        <path fill-rule="evenodd"
+                                                            d="M20 6 L34 20 L20 34 L6 20 Z M13 13 V27 H17 V22 H23 V27 H27 V13 H23 V18 H17 V13 Z"
+                                                            fill="white" />
+                                                    </svg>
+                                                    <span data-i18n="deliv_np">Нова Пошта</span>
+                                                </div>
+                                            </label>
+                                            <label class="method-card">
+                                                <input type="radio" name="deliveryMethod" value="ukrposhta">
+                                                <div class="method-content">
+                                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                                                        <rect width="40" height="40" rx="8" fill="#FFCC00" />
+                                                        <path
+                                                            d="M10 14C10 12.8954 10.8954 12 12 12H28C29.1046 12 30 12.8954 30 14V26C30 27.1046 29.1046 28 28 28H12C10.8954 28 10 27.1046 10 26V14Z"
+                                                            fill="#0033A0" />
+                                                        <path d="M10 16L20 22L30 16" stroke="#FFCC00" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                    <span data-i18n="deliv_up">Укрпошта</span>
+                                                </div>
+                                            </label>
+                                            <label class="method-card">
+                                                <input type="radio" name="deliveryMethod" value="pickup">
+                                                <div class="method-content">
+                                                    <i class="ph-fill ph-storefront"></i>
+                                                    <span data-i18n="deliv_pickup">Самовивіз</span>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <!-- Nova Poshta Sub-options -->
+                                        <div id="npToggleGroup" class="np-toggle-group sub-method-group" style="display: flex;">
+                                            <label class="toggle-option">
+                                                <input type="radio" name="npDeliveryType" value="dept" checked>
+                                                <div class="toggle-box">
+                                                    <i class="ph-fill ph-package"></i>
+                                                    <span data-i18n="np_dept">Відділення</span>
+                                                </div>
+                                            </label>
+                                            <label class="toggle-option">
+                                                <input type="radio" name="npDeliveryType" value="locker">
+                                                <div class="toggle-box">
+                                                    <i class="ph-fill ph-lock-key"></i>
+                                                    <span data-i18n="np_locker">Поштомат</span>
+                                                </div>
+                                            </label>
+                                            <label class="toggle-option">
+                                                <input type="radio" name="npDeliveryType" value="courier">
+                                                <div class="toggle-box">
+                                                    <i class="ph-fill ph-truck"></i>
+                                                    <span data-i18n="deliv_courier">Кур'єр</span>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <!-- Ukrposhta Sub-options -->
+                                        <div id="upToggleGroup" class="up-toggle-group sub-method-group" style="display: none;">
+                                            <label class="toggle-option">
+                                                <input type="radio" name="upDeliveryType" value="dept" checked>
+                                                <div class="toggle-box">
+                                                    <i class="ph-fill ph-package"></i>
+                                                    <span data-i18n="np_dept">Відділення</span>
+                                                </div>
+                                            </label>
+                                            <label class="toggle-option">
+                                                <input type="radio" name="upDeliveryType" value="courier">
+                                                <div class="toggle-box">
+                                                    <i class="ph-fill ph-truck"></i>
+                                                    <span data-i18n="deliv_courier">Кур'єр</span>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group mt-4" id="addressFormGroup">
+                                            <label for="checkoutAddress" id="addressLabel" data-i18n="checkout_address">Адреса або відділення</label>
+                                            <div class="city-input-wrapper">
+                                                <input type="text" id="checkoutAddress" name="address" required
+                                                    placeholder="Відділення №1..."
+                                                    data-i18n-placeholder="checkout_address_ph" autocomplete="off">
+                                                <div class="city-dropdown" id="addressDropdown"></div>
+                                                <div class="input-loader" id="addressLoader" style="display: none;"></div>
+                                            </div>
+                                        </div>
+
+                                    <!-- Payment -->
+                                    <div class="checkout-block payment-block">
+                                        <h3 class="checkout-block-title">
+                                            <i class="ph-fill ph-credit-card"></i>
+                                            <span data-i18n="checkout_payment_title">Оплата</span>
+                                        </h3>
+                                        <div class="payment-methods">
+                                            <label class="method-card">
+                                                <input type="radio" name="paymentMethod" value="card" checked>
+                                                <div class="method-content">
+                                                    <i class="ph-fill ph-credit-card"></i>
+                                                    <span data-i18n="pay_card">Картою на сайті</span>
+                                                </div>
+                                            </label>
+                                            <label class="method-card">
+                                                <input type="radio" name="paymentMethod" value="cash">
+                                                <div class="method-content">
+                                                    <i class="ph-fill ph-money"></i>
+                                                    <span data-i18n="pay_cash">При отриманні</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Summary -->
+                        <aside class="cart-summary">
+                            <h3 data-i18n="cart_summary">Підсумок замовлення</h3>
+                            <div class="summary-row">
+                                <span data-i18n="cart_subtotal">Підсумок</span>
+                                <span id="cartSubtotal">0₴</span>
+                            </div>
+                            <div class="summary-row">
+                                <span data-i18n="cart_delivery">Доставка</span>
+                                <span id="cartDelivery" data-i18n="cart_free">Безкоштовно</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row summary-total">
+                                <span data-i18n="cart_grand_total">Загалом</span>
+                                <span id="cartGrandTotal">0₴</span>
+                            </div>
+                            <button class="btn btn-primary cart-checkout-btn" id="checkoutBtn"
+                                data-i18n="cart_checkout">
+                                Оформити замовлення
+                            </button>
+                            <a href="index.html#products" class="cart-continue-link" data-i18n="cart_continue_shopping">
+                                ← Продовжити покупки
+                            </a>
+                        </aside>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_info">Інформація</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="footer_about">Про нас</a></li>
+                        <li><a href="#" data-i18n="footer_wholesale">Оптовим клієнтам</a></li>
+                        <li><a href="#" data-i18n="footer_offer">Публічна оферта</a></li>
+                        <li><a href="returns.html" data-i18n="footer_return_policy">Політика повернення товару</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_categories">Категорії</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <ul>
+                        <li><a href="category.html?id=cat_cameras" data-i18n="cat_cameras">Камери відеоспостереження</a></li>
+                        <li><a href="category.html?id=cat_lighting" data-i18n="cat_lighting">Розумне освітлення</a></li>
+                        <li><a href="category.html?id=cat_health" data-i18n="cat_health">Краса та здоров'я</a></li>
+                        <li><a href="category.html?id=cat_accessories" data-i18n="cat_accessories">Аксесуари та гаджети</a></li>
+                        <li><a href="category.html?id=cat_other" data-i18n="cat_other">Інше</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_working_hours">Час роботи</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div class="footer-schedule">
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-clock" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: #fff; font-weight: 600; font-size: 0.95rem;" data-i18n="footer_time_weekdays">ПН-ПТ: 09:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="footer-schedule-row">
+                            <i class="ph-fill ph-calendar-blank" style="font-size: 1.4rem; color: rgba(255,255,255,0.5); flex-shrink: 0;"></i>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;" data-i18n="footer_time_weekend">СБ-ВС: вихідний</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 22px;">
+                        <span data-i18n="footer_social_text" style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 12px; color: #fff;">Ми в соціальних мережах:</span>
+                        <div class="footer-socials">
+                            <a href="#" aria-label="facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                            <a href="#" aria-label="instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                            <a href="#" aria-label="youtube"><i class="ph-fill ph-youtube-logo"></i></a>
+                            <a href="#" aria-label="tiktok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links footer-links-collapsible">
+                    <h4><span data-i18n="footer_contacts_title">Наші контакти</span> <span class="footer-chevron"><i class="ph ph-arrow-fat-line-down"></i></span></h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="tel:+380663842433" style="font-weight: 700; font-size: 1.2rem; color: #fff;">+38 (066)384-24-33</a>
+                        <a href="mailto:zakaz@magnitek.ua" style="text-decoration: underline; color: var(--color-text-secondary); font-size: 1.05rem;">zakaz@magnitek.ua</a>
+                        <div style="color: var(--color-text-secondary); line-height: 1.5; font-size: 0.95rem; margin-top: 5px;" data-i18n="footer_address">м. Харків, вул. Василя Стуса, 4а,<br>61154</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2026 SECURBOX. Усі права захищені.</p>
+                <div class="footer-payment-methods">
+                    <iconify-icon icon="logos:visa"></iconify-icon>
+                    <iconify-icon icon="logos:mastercard"></iconify-icon>
+                    <iconify-icon icon="logos:apple-pay"></iconify-icon>
+                    <iconify-icon icon="logos:google-pay"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== MOBILE BOTTOM NAV ===================== -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="ph-fill ph-house"></i>
+            <span data-i18n="nav_home">Головна</span>
+        </a>
+        <a href="index.html#categories" class="mobile-nav-item">
+            <i class="ph-fill ph-squares-four"></i>
+            <span data-i18n="nav_categories">Категорії</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item mobile-nav-cart active">
+            <i class="ph-fill ph-shopping-cart"></i>
+            <span data-i18n="nav_cart">Кошик</span>
+            <span class="cart-badge">0</span>
+        </a>
+        <a href="index.html#contact" class="mobile-nav-item">
+            <i class="ph-fill ph-phone-call"></i>
+            <span data-i18n="nav_contact">Контакти</span>
+        </a>
+    </nav>
+
+    <!-- ===================== CALLBACK MODAL ===================== -->
+    <div class="modal-overlay" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeCallbackModal">&times;</button>
+            <div class="modal-header">
+                <h2 data-i18n="callback_title">Замовити дзвінок</h2>
+                <p data-i18n="callback_desc">Введіть номер, і ми передзвонимо вам якнайшвидше.</p>
+            </div>
+            <form id="callbackForm" class="modal-form">
+                <div class="form-group">
+                    <label for="cbName" data-i18n="modal_name">Ваше ім'я</label>
+                    <input type="text" id="cbName" name="name" required placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label for="cbPhone" data-i18n="modal_phone">Ваш телефон</label>
+                    <input type="tel" id="cbPhone" name="phone" required placeholder="+380">
+                </div>
+                <button type="submit" class="btn btn-primary modal-submit" data-i18n="callback_btn">Передзвоніть
+                    мені</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== SUCCESS MODAL ===================== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content" style="max-width: 400px; text-align: center; padding: 40px 30px;">
+            <button class="modal-close" id="closeSuccessModal">&times;</button>
+            <div class="modal-success-msg">
+                <div style="font-size: 4rem; color: #10b981; margin-bottom: 20px;">
+                    <i class="ph-fill ph-check-circle"></i>
+                </div>
+                <h2 id="successModalTitle"
+                    style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 15px;">Дякуємо!</h2>
+                <p id="successModalDesc"
+                    style="color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 25px;">Ми отримали
+                    вашу заявку та скоро зв’яжемося з вами.</p>
+                <button class="btn btn-primary" id="successModalBtn" style="width: 100%;">ОК</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FLOATING ACTIONS ===================== -->
+    <div class="floating-actions">
+        <button class="btn-callback-float" id="openCallbackBtn" title="Замовити дзвінок">
+            <i class="ph-fill ph-phone-call"></i>
+            <span class="pulse-ring"></span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.4/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
